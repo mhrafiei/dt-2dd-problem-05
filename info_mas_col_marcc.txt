@@ -1,0 +1,6 @@
+pc                    = parcluster('local');
+pc.NumWorkers         = 2;
+job_folder            = fullfile(pc.JobStorageLocation,getenv('SLURM_JOB_ID'));
+mkdir(job_folder);
+pc.JobStorageLocation = job_folder;
+parpool(pc,2);
